@@ -1,0 +1,45 @@
+[Server]
+# 若设为0 则关闭系统指标收集
+collectIntervalMs = 1000
+appName = "motor"
+
+[Log]
+logDir = "/tmp/motor_log"
+usePid = true
+maxFileCount = 8
+singleFileMaxSize = "50M"
+# 若设为 0 则关闭监控日志输出
+flushInterval = "1s"
+
+#限流
+[FlowRule]
+#使能开关
+Enabled = true
+# 规则名
+resource = "motor_ratelimit"
+# 流量控制器的控制策略: Reject表示超过阈值直接拒绝，Throttling表示匀速排队
+controlBehavior = "Reject"
+# 流控类型，QPS:基于请求数做流控，Concurrency：基于并发做流控
+metricType = "QPS"
+# 限流阀值
+count = 10
+
+#熔断
+[BreakerRule]
+#使能开关
+Enabled = true
+# 规则名
+resource = "motor_breaker"
+# 熔断策略，支持SlowRequestRatio、ErrorRatio、ErrorCount
+strategy = "SlowRequestRatio"
+# 熔断触发后持续的时间
+retryTimeout = "10s"
+# 静默数量
+minRequestAmount = 50
+# 统计的时间窗口长度
+statInterval = "1s"
+# 判断请求是否达到慢调用的临界值, 仅对stragegy=SlowRequestRatio生效
+maxAllowedRtMs = "500ms"
+# 熔断阀值，SlowRequestRatio和ErrorRatio类型取值范围[0.0, 1.0],ErrorCount类型表示错误数量
+# threshold值类型必须是float64，如：100.0。(参考：https://github.com/BurntSushi/toml/issues/60)
+threshold = 0.6

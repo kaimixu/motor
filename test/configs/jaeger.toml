@@ -1,0 +1,9 @@
+[Sampler]
+Type = "const"
+Param = 1.0 # must float
+#SamplingServerURL = "http://localhost:5778/sampling"
+#SamplingRefreshInterval = "1m"
+
+[Reporter]
+#LocalAgentHostPort = "locahost:6831"
+CollectorEndpoint = "http://localhost:14268/api/traces"

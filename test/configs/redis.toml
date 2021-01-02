@@ -1,0 +1,34 @@
+[Server]
+    # cluster1为集群名
+    [Server.cluster1]
+        # 机房
+        idc = "default"
+
+        # 最大空闲连接数
+        maxIdle = 100
+        # 最大连接数, 0：不限制
+        maxActive = 300
+        # 连接最大空闲时长，0:空闲连接不会被关闭, 单位：分钟; 超时后空闲连接会被释放
+        idleTimeout = 200
+
+        # 读超时时间,单位：秒
+        readTimeout = 5
+        # 写超时时间，单位：秒
+        writeTimeout = 5
+        # 连接超时时间，单位：秒
+        connTimeout = 2
+        # xxx, 单位：分钟，0：禁止keepalive
+        keepAlive = 5
+
+        # 主库
+        [[Server.cluster1.master]]
+            addr = "127.0.0.1:6379"
+            password = ""
+
+        # 从库
+        [[Server.cluster1.slave]]
+            addr = "127.0.0.1:6379"
+            password = ""
+
+
+

@@ -1,0 +1,26 @@
+[Database]
+    # test为表名
+    [Database.test]
+        # 机房
+        idc = "default"
+        # 连接池配置，单位：秒
+        connMaxLifetime = 10
+        maxOpenConns = 100
+        maxIdleConns = 50
+
+        # 主库
+        [[Database.test.master]]
+            username = ""
+            password = ""
+            ip = "127.0.0.1"
+            port = 3306
+
+        # 从库
+        [[Database.test.slave]]
+            username = ""
+            password = ""
+            ip = "127.0.0.1"
+            port = 3306
+
+
+

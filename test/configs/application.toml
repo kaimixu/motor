@@ -1,0 +1,14 @@
+[App]
+Name = "motor"
+
+[Log]
+# 日志级别
+level = "debug"
+# 日志格式
+encoding = "json"
+# 日志文件路径名
+outputPaths = ["../test/log/application.log"]
+# 错误日志文件路径名
+errOutputPaths = ["../test/log/application.err.log"]
+# 每条日志中都携带的性属
+initialFields = ["app"]

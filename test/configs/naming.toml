@@ -1,0 +1,19 @@
+[etcd]
+# 单位：秒
+leaseTTL = 100
+# 单位：秒
+dialTimeout = 5
+addrs = ["127.0.0.1:2379", "127.0.0.1:22379"]
+# 名字前缀, 如：etcd key的格式为snPrefix/mysql/productline
+snPrefix = "/conf/corp/"
+
+# basic Auth
+basicAuth = false
+username = "myuser"
+password = "123456"
+
+# 开启tls，tls与basic auth 同时配置时仅basic auth生效
+tlsEnable = false
+#cacert = "../test/cert/ca.pem"
+#servercert = "../test/cert/server.pem"
+#serverkey = "../test/cert/server-key.pem"
