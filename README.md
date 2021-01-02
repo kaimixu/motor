@@ -26,7 +26,7 @@
 ## 目录结构
 - **conf:**&nbsp;配置管理
 - **jwt:**&nbsp;jwt认证
-- **log:**&nbsp;日志管理，基于[zap](go.uber.org/zap)库
+- **log:**&nbsp;日志管理，基于[zap](https://pkg.go.dev/go.uber.org/zap)库
 - **mysql:**&nbsp;支持名字服务和文件两个配置加载方式
 - **naming:**&nbsp;基于etcd的名字服务
 - **redis:**&nbsp;支持名字服务和文件两个配置加载方式
@@ -49,4 +49,4 @@ go test -v
 ```
 
 ## 使用Demo
-参考[demo](github.com/kaimixu/motor_demo)
+参考[demo](https://github.com/kaimixu/motor_demo)
