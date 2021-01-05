@@ -1,6 +1,6 @@
 # Motor
 
-基于[Gin](https://github.com/gin-gonic/gin) 框架的微服务脚手架，封装了一些常用的功能，如：命字服务、熔断、配置热加载、链路追踪、metrics、mysql、redis等。
+基于[Gin](https://github.com/gin-gonic/gin) 框架的微服务脚手架，包含了一些常用的功能，如：命字服务、熔断、配置热加载、链路追踪、metrics、mysql、redis等。
 
 ## 主要内容
 - http(s)服务
@@ -14,27 +14,25 @@
   - prometheus中间件
   - 链路追踪中间件
 - 微服务组件
-  - 配置管理，支持配置热加载，参考[kratos](https://github.com/go-kratos/kratos)
+  - 配置管理，支持配置热加载，参考了[kratos](https://github.com/go-kratos/kratos)
   - Jwt认证
   - metrics，支持qps、请求耗时、错误请求数统计
   - 基于etcd的服务注册与发现
-  - 服务熔断，参考[sentinel](https://github.com/alibaba/sentinel-golang)
+  - 服务熔断，基于[sentinel](https://github.com/alibaba/sentinel-golang)
   - 分布式链路追踪
 - 存储
   - Mysql
   - Redis
-## 目录结构
-- **conf:**&nbsp;配置管理
-- **jwt:**&nbsp;jwt认证
-- **log:**&nbsp;日志管理，基于[zap](https://pkg.go.dev/go.uber.org/zap)库
-- **mysql:**&nbsp;支持名字服务和文件两个配置加载方式
-- **naming:**&nbsp;基于etcd的名字服务
-- **redis:**&nbsp;支持名字服务和文件两个配置加载方式
-- **tolerant:**&nbsp;服务熔断
-- **util:**&nbsp;项目中使用到的基础工具
-- **test**&nbsp;项目go test使用的配置
-## 框架测试
-#### Requirements
+## Features
+- Http(s)服务： 支持gin框架无缝升级，封装了accesslog、jwt、ratelimit、trace、prometheus等常用中间件。
+- Mysql&redis: 支持从名字服务和文件两种方式配置加载，支持配置平滑切换，并接入了trace。
+- Trace: 基于opentracing和jaeger，实现分布式链路追踪
+- Config: 支持配置热加载，参考了[kratos](https://github.com/go-kratos/kratos)
+- Naming: 基于etcd的名字服务，实现了服务注册与服务发现
+
+## Quick start
+
+### Requirements
 - Go version >= 1.13
 - Go environment configure
 
@@ -42,10 +40,12 @@
 export GOPROXY="https://goproxy.cn,direct"
 ```	
 
-- 修改test/configs目录下的配置
+- 修改test/configs目录下的服务配置
+
+### 框架测试
 
 ```
-go test -v 
+
 ```
 
 ## 使用Demo

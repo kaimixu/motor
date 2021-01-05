@@ -10,7 +10,7 @@ import (
 func TestInitJaeger(t *testing.T) {
 	assert := assert.New(t)
 
-	assert.Nil(conf.Parse("../configs"))
+	assert.Nil(conf.Parse("../test/configs"))
 	o := newJaeger("TestJaeger")
 	defer o.Close()
 	return
