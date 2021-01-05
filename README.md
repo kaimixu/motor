@@ -40,13 +40,15 @@
 export GOPROXY="https://goproxy.cn,direct"
 ```	
 
-- 修改test/configs目录下的服务配置
-
 ### 框架测试
+- 注意修改test/configs目录下的服务配置
+
+```shell
+go get -u github.com/kaimixu/motor
+
+go test -v ./...
 
 ```
 
-```
-
-## 使用Demo
+### 使用Demo
 参考[demo](https://github.com/kaimixu/motor_demo)
