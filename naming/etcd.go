@@ -300,7 +300,7 @@ func (srv *serverInfo) getstore(typ string) error {
 		zap.L().Error(fmt.Sprintf("client.Get failed, err:%+v", err), zap.String("sn", srv.sn))
 		return err
 	}
-	// 首次get时服务可能还会注册，此情况下不唤醒resolver
+	// 首次get时服务可能还未注册，此情况下不唤醒resolver
 	if typ == "get" && len(resp.Kvs) == 0 {
 		zap.L().Info("naming.getstore: client.get return null",
 			zap.String("typ", typ),
